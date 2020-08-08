@@ -590,6 +590,26 @@ h6 {
   clear: both;
 }
 
+img#logo {
+  height: 150px;
+  width: 150px;
+}
+
+#about {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+}
+
+#about-under {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
 .toolbar-header {
   border-bottom: 1px solid #c2c0c2;
   padding-top: 3px;

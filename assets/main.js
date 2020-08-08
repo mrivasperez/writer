@@ -1,7 +1,17 @@
 // NODE MODULES
 const electron = require("electron"),
-  { app, BrowserWindow, ipcMain } = electron,
+  { app, BrowserWindow, ipcMain, dialog } = electron,
   fs = require("fs");
+
+const createAboutWindow(){
+  let aboutWindow = new BrowserWindow({
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
+  aboutWindow.loadFile('assets/about.html')
+}
 
 app.on("ready", () => {
   let window = new BrowserWindow({
@@ -15,7 +25,8 @@ app.on("ready", () => {
 
 ipcMain.on("save", (event, text) => {
   // save the text to a file
-  console.log(text);
+  dialog.showSaveDialog()
+  
   fs.writeFile("sampleWriter.txt", text, err => {
     if (err) {
       console.log("ERRER", err);

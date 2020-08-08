@@ -6,7 +6,8 @@ const decreaseTextBtn = document.getElementById("decrease-text-btn"),
   increaseTextBtn = document.getElementById("increase-text-btn"),
   textArea = document.getElementById("main-text-area"),
   saveBtn = document.getElementById("save-btn"),
-  exitBtn = document.getElementById("exit-btn");
+  exitBtn = document.getElementById("exit-btn"),
+  closeBtn = document.getElementById("close-btn");
 
 let fontSize = 16;
 
