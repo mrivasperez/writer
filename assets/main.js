@@ -3,8 +3,14 @@ const electron = require("electron"),
   { app, BrowserWindow, ipcMain, dialog } = electron,
   fs = require("fs");
 
-let window,
-  savedFilePath = undefined;
+let window;
+let savedFilePath = undefined;
+
+const saveToFile = text => {
+  fs.writeFile(savedFilePath, text, err => {
+    if (err) console.log("There was an error", err);
+  });
+};
 
 const createAboutWindow = () => {
   let aboutWindow = new BrowserWindow({
@@ -33,19 +39,14 @@ ipcMain.on("save", (event, text) => {
       .showSaveDialog(window, { defaultPath: "untitled.txt" })
       .then(result => {
         savedFilePath = result.filePath;
-        // Save .txt file to user choice
-        fs.writeFile(savedFilePath, text, err => {
-          if (err) console.log("There was an error", err);
-        });
+        saveToFile(text);
       })
 
       .catch(error => {
         alert("There was an error!", error);
       });
   } else {
-    fs.writeFile(savedFilePath, text, err => {
-      if (err) console.log("There was an error", err);
-    });
+    saveToFile(text);
   }
 });
 
