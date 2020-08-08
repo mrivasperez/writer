@@ -4,8 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>writer.</title>
+    <link rel="stylesheet" href="css/photon.css" />
   </head>
   <body>
-    <h1>Writer</h1>
+    <!-- Wrap your entire app inside .window -->
+    <div class="window">
+      <!-- .toolbar-header sits at the top of your app -->
+      <header class="toolbar toolbar-header">
+          <h1 class="title">writer.</h1>
+        <div class="toolbar-actions">
+          <div class="btn-group">
+            <button class="btn btn-default" id="decrease-text-btn">
+              <span class="icon"><img src="https://img.icons8.com/metro/26/000000/decrease-font.png"/></span>
+            </button>
+            <button class="btn btn-default" id="increase-text-btn">
+              <span class="icon"><img src="https://img.icons8.com/metro/26/000000/increase-font.png"/></span>
+            </button>
+          </div>
+
+        <div class="btn-group pull-right">
+            <button class="btn btn-primary" id="save-btn">
+                <span class="icon icon-check icon-text" style="color: white;"></span>Save
+            </button>
+            <button class="btn btn-negative">
+                <span class="icon icon-cancel icon-text" style="color: white;"></span>
+                Exit
+            </button>
+        </div>
+        </div>
+      </header>
+      <div class="window-content">
+        <textarea id="main-text-area" placeholder="A writer writes."></textarea>
+    </div>
+      </div>
+    </div>
+    <script src="script/script.js"></script>
   </body>
 </html>

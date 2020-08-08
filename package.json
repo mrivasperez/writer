@@ -4,7 +4,8 @@
   "description": "A minimal text editor",
   "main": "assets/main.js",
   "dependencies": {
-    "electron": "^9.1.2"
+    "electron": "^9.1.2",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
