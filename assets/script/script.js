@@ -11,6 +11,8 @@ const saveText = () => {
   console.log(textArea.value);
 };
 
+// EVENT LISTENERS
+
 saveBtn.addEventListener("click", saveText);
 
 // Decrease font size within textarea
