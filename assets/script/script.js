@@ -7,7 +7,8 @@ const decreaseTextBtn = document.getElementById("decrease-text-btn"),
   textArea = document.getElementById("main-text-area"),
   saveBtn = document.getElementById("save-btn"),
   exitBtn = document.getElementById("exit-btn"),
-  closeBtn = document.getElementById("close-btn");
+  closeBtn = document.getElementById("close-btn"),
+  title = document.getElementById("title");
 
 let fontSize = 16;
 
@@ -21,6 +22,24 @@ const saveText = () => {
 
 const exitApp = () => {
   ipcRenderer.send("exit");
+};
+
+ipcRenderer.on("saved", (event, results, savedFilePath) => {
+  if (results === "success") {
+    confirmSave(savedFilePath);
+  } else {
+    console.log("error occurred");
+  }
+});
+
+const confirmSave = savedFilePath => {
+  textArea.style.backgroundColor = "#e3f8df";
+  title.innerText = "File Saved";
+  title.style.left = "12%";
+  setTimeout(() => {
+    title.innerText = `writer. \v ${savedFilePath}`;
+    textArea.style.backgroundColor = "white";
+  }, 1000);
 };
 
 // APPLICATION EVENT LISTENERS
