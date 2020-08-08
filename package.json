@@ -2,7 +2,7 @@
   "name": "writer.",
   "version": "1.0.0",
   "description": "A minimal text editor",
-  "main": "main.js",
+  "main": "assets/main.js",
   "dependencies": {
     "electron": "^9.1.2"
   },
