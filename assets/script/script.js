@@ -1,26 +1,38 @@
-// const { ipcMain } = require("electron");
+const electron = require("electron");
+const { ipcRenderer } = electron;
 
+// Application Variables
 const decreaseTextBtn = document.getElementById("decrease-text-btn"),
   increaseTextBtn = document.getElementById("increase-text-btn"),
   textArea = document.getElementById("main-text-area"),
-  saveBtn = document.getElementById("save-btn");
+  saveBtn = document.getElementById("save-btn"),
+  exitBtn = document.getElementById("exit-btn");
 
-let defaultFontSize = 16;
+let fontSize = 16;
 
+// APPLICATION FUNCTIONS
 const saveText = () => {
-  console.log(textArea.value);
+  let text = textArea.value;
+  console.log(text);
+  // send text to main process
+  ipcRenderer.send("save", text);
 };
 
-// EVENT LISTENERS
+const exitApp = () => {
+  ipcRenderer.send("exit");
+};
+
+// APPLICATION EVENT LISTENERS
 
 saveBtn.addEventListener("click", saveText);
+exitBtn.addEventListener("click", exitApp);
 
 // Decrease font size within textarea
 decreaseTextBtn.addEventListener("click", e => {
-  textArea.style.fontSize = `${defaultFontSize--}px`;
+  textArea.style.fontSize = `${fontSize--}px`;
 });
 
 // Increase font size within textarea
 increaseTextBtn.addEventListener("click", e => {
-  textArea.style.fontSize = `${defaultFontSize++}px`;
+  textArea.style.fontSize = `${fontSize++}px`;
 });
