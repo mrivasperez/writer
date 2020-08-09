@@ -1,4 +1,4 @@
-# writer.
+# ![logo](assets/img/logo.png)writer.
 
 ![A screenshot](assets/img/screenshot.png)
 
