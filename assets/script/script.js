@@ -24,6 +24,18 @@ const exitApp = () => {
   ipcRenderer.send("exit");
 };
 
+ipcRenderer.on("save-clicked", () => {
+  saveText();
+});
+
+// Response to when window knows save as was clicked
+ipcRenderer.on("saveAs-clicked", () => {
+  let text = textArea.value;
+  console.log(text);
+  // send text to main process
+  ipcRenderer.send("save-as", text);
+});
+
 ipcRenderer.on("saved", (event, results, savedFilePath) => {
   if (results === "success") {
     confirmSave(savedFilePath);
