@@ -1,6 +1,6 @@
 # writer.
 
-[!A screenshot](assets/img/screenshot.png)
+![A screenshot](assets/img/screenshot.png)
 
 Writer is a lightweight, multi-platform, text editor. It's great for taking notes, writing a letter, or writing a whole book with minimal distractions and confusing options. I built it using the Electron JS framework.
 
